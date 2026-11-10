@@ -18,11 +18,12 @@ Drop these into `public/assets/`:
 - `Mritunjay_Sharma_Resume.pdf` — used by every "Download Resume" button.
 
 ## Deploy to GitHub Pages
-1. Create an empty GitHub repo named `mritunjay-portfolio`.
-2. `git remote add origin https://github.com/<your-username>/mritunjay-portfolio.git`
-3. `git add -A && git commit -m "Portfolio" && git push -u origin main`
-4. `npm run deploy` — builds and pushes to the `gh-pages` branch.
-5. In the repo: **Settings → Pages → Source: `gh-pages` branch**.
+Deployment is automatic: every push to `main` runs [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which builds the site and publishes it to GitHub Pages.
 
-Site URL: `https://<your-username>.github.io/mritunjay-portfolio/`
-(If you rename the repo, update `--base-href` in the `deploy` script in `package.json`.)
+One-time setup: in the repo, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+
+Live URL: `https://mritunjaysharma001.github.io/Portfolio/`
+
+The workflow sets the base path from the repo name. If you rename the repo to `mritunjaySharma001.github.io`, the site moves to `https://mritunjaysharma001.github.io/` with no code change.
+
+Manual fallback: `npm run deploy` pushes a build to a `gh-pages` branch. Its `--base-href` in `package.json` must match the repo name.

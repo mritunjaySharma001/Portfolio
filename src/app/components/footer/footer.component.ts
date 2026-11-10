@@ -37,7 +37,7 @@ import { PROFILE } from '../../data/portfolio.data';
       &:hover { color: var(--accent); border-color: var(--accent); }
     }
     .to-top {
-      position: fixed; right: 16px; bottom: 16px; z-index: 50;
+      position: fixed; right: 22px; bottom: 84px; z-index: 50;
       box-shadow: var(--shadow);
       opacity: 0; pointer-events: none; transform: translateY(12px);
       &.show { opacity: 1; pointer-events: auto; transform: none; }

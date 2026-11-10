@@ -1,28 +1,20 @@
 <section id="contact" class="section alt">
   <div class="container">
     <div class="section-head center" appReveal>
-      <span class="eyebrow">06. Contact</span>
+      <span class="eyebrow">07. Contact</span>
       <h2>Let's <span class="gradient-text">work together</span></h2>
       <p class="lead">
         Open to opportunities in .NET, ASP.NET Core, Angular, Azure, microservices and full stack development. My
-        inbox is always open.
+        inbox is always open. Send a message below or connect with me on LinkedIn.
       </p>
     </div>
 
     <div class="grid">
       <div class="info" appReveal>
-        <a class="card info-item" [href]="'mailto:' + profile.email">
-          <span class="icon"><app-icon name="mail" /></span>
-          <span>
-            <span class="label">Email</span>
-            <span class="value">{{ profile.email }}</span>
-          </span>
-        </a>
-        <a class="card info-item" [href]="profile.linkedin" target="_blank" rel="noopener">
+        <a class="card info-item" [href]="profile.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)">
           <span class="icon"><app-icon name="linkedin" /></span>
           <span>
-            <span class="label">LinkedIn</span>
-            <span class="value">mritunjay-sharma2021</span>
+            <span class="value">LinkedIn</span>
           </span>
         </a>
         <div class="card info-item">

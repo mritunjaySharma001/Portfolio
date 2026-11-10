@@ -84,6 +84,21 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         @case ('check') {
           <polyline points="20 6 9 17 4 12" />
         }
+        @case ('sparkles') {
+          <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" />
+        }
+        @case ('cpu') {
+          <rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" />
+          <line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" /><line x1="9" y1="20" x2="9" y2="23" />
+          <line x1="15" y1="20" x2="15" y2="23" /><line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="14" x2="23" y2="14" />
+          <line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="14" x2="4" y2="14" />
+        }
+        @case ('message') {
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        }
+        @case ('code') {
+          <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+        }
         @default {
           <circle cx="12" cy="12" r="10" />
         }

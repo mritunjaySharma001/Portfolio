@@ -18,10 +18,38 @@ export interface Stat {
   label: string;
 }
 
+export type SkillCategory = 'backend' | 'frontend' | 'data' | 'cloud' | 'ai' | 'practices';
+
+export type SkillLevel = 'Expert' | 'Advanced' | 'Proficient';
+
 export interface SkillGroup {
   title: string;
   icon: string;
+  category: SkillCategory;
   skills: string[];
+}
+
+export interface AssistantAction {
+  label: string;
+  /** URL, `#section` anchor, or `copy:<text>` to copy to the clipboard. */
+  href: string;
+  download?: boolean;
+}
+
+export interface AssistantEntry {
+  /** Keywords / short phrases that signal this intent. */
+  intents: string[];
+  answer: string;
+  actions?: AssistantAction[];
+}
+
+export interface ArchNode {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: string;
+  detail: string;
+  points: string[];
 }
 
 export interface Role {

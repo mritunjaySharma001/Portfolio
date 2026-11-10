@@ -36,24 +36,26 @@
 .hero-grid {
   position: relative;
   display: grid;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
+  grid-template-areas:
+    'intro'
+    'visual';
 
   @media (min-width: 900px) {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas: 'intro visual';
+    column-gap: 56px;
   }
 }
 
 .intro {
-  order: 2;
-
-  @media (min-width: 900px) {
-    order: 1;
-  }
+  grid-area: intro;
 }
 
 .status {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
@@ -155,74 +157,115 @@ h1 {
   }
 }
 
-.portrait {
-  order: 1;
+.visual {
+  grid-area: visual;
   position: relative;
   justify-self: center;
-  width: min(72vw, 320px);
+  width: min(84vw, 400px);
+  aspect-ratio: 1;
+}
 
-  @media (min-width: 900px) {
-    order: 2;
-    width: 340px;
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--accent-2) 40%, transparent);
+  animation: spin var(--dur) linear infinite;
+
+  &.outer {
+    --dur: 48s;
+    width: 92%;
+    height: 92%;
+    margin: -46% 0 0 -46%;
+  }
+
+  &.inner {
+    --dur: 32s;
+    width: 66%;
+    height: 66%;
+    margin: -33% 0 0 -33%;
+    animation-direction: reverse;
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
   }
 }
 
-.ring {
+/* Each slot sits on the ring; the inner wrapper counter-rotates so labels stay upright. */
+.slot {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--a));
+}
+
+.upright {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(calc(-1 * var(--a)));
+  animation: spin var(--dur) linear infinite reverse;
+
+  .inner & {
+    animation-direction: normal;
+  }
+}
+
+.pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font: 600 0.78rem var(--mono);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+
+  &.accent {
+    color: var(--accent-2);
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44%;
   aspect-ratio: 1;
+  overflow: hidden;
+  translate: -50% -50%;
+  display: grid;
+  place-content: center;
+  text-align: center;
   border-radius: 50%;
-  padding: 6px;
-  background: var(--gradient);
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    var(--gradient) border-box;
+  border: 4px solid transparent;
   box-shadow: 0 20px 60px rgba(124, 92, 255, 0.35);
 
-  img,
-  .initials {
+  .mono-mark {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    background: var(--surface);
-    border: 4px solid var(--bg);
-  }
-
-  .initials {
-    display: grid;
-    place-items: center;
-    font-size: clamp(3.5rem, 14vw, 6rem);
-    font-weight: 800;
-    color: var(--text);
+    object-position: center 20%;
   }
 }
 
-.badge {
-  position: absolute;
-  padding: 8px 14px;
-  font-size: 0.82rem;
-  white-space: nowrap;
-  border-radius: 12px;
-  animation: float 5s ease-in-out infinite;
-
-  strong {
-    color: var(--accent);
-  }
-
-  &.mono {
-    font-family: var(--mono);
-  }
-
-  &-1 {
-    top: 10%;
-    left: -8%;
-  }
-
-  &-2 {
-    bottom: 6%;
-    right: -6%;
-    animation-delay: 1.5s;
-  }
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-8px);
-  }
-}

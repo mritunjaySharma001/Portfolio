@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RevealDirective } from '../../directives/reveal.directive';
+import { CountUpDirective } from '../../directives/count-up.directive';
 import { PROFILE, STATS } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RevealDirective],
+  imports: [RevealDirective, CountUpDirective],
   template: `
     <section id="about" class="section">
       <div class="container">
@@ -24,7 +25,7 @@ import { PROFILE, STATS } from '../../data/portfolio.data';
           <div class="stats">
             @for (stat of stats; track stat.label; let i = $index) {
               <div class="stat card" appReveal [revealDelay]="i * 90">
-                <span class="value gradient-text">{{ stat.value }}</span>
+                <span class="value gradient-text" [appCountUp]="stat.value"></span>
                 <span class="label">{{ stat.label }}</span>
               </div>
             }

@@ -11,7 +11,7 @@ import { EDUCATION, TRAININGS } from '../../data/portfolio.data';
     <section id="education" class="section">
       <div class="container">
         <div class="section-head" appReveal>
-          <span class="eyebrow">05. Education</span>
+          <span class="eyebrow">06. Education</span>
           <h2>Learning & <span class="gradient-text">training</span></h2>
         </div>
 

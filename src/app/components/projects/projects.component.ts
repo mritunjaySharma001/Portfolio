@@ -11,7 +11,7 @@ import { PROJECTS } from '../../data/portfolio.data';
     <section id="projects" class="section alt">
       <div class="container">
         <div class="section-head" appReveal>
-          <span class="eyebrow">04. Projects</span>
+          <span class="eyebrow">05. Projects</span>
           <h2>Featured <span class="gradient-text">work</span></h2>
         </div>
 

@@ -22,6 +22,7 @@ export class NavbarComponent {
   readonly links: NavLink[] = [
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
+    { id: 'architecture', label: 'Stack' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },

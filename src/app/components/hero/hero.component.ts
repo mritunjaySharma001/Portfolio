@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
+import { HeroBgComponent } from './hero-bg.component';
 import { PROFILE } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [IconComponent],
+  imports: [IconComponent, HeroBgComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
@@ -13,6 +14,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   readonly profile = PROFILE;
   readonly typed = signal('');
   readonly photoFailed = signal(false);
+  readonly outer = ['.NET', 'Angular', 'Azure', 'SQL Server'];
+  readonly inner = ['C#', 'AI ✦', 'TypeScript'];
 
   private timer?: ReturnType<typeof setTimeout>;
   private roleIndex = 0;

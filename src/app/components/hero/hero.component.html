@@ -1,6 +1,7 @@
 <section id="home" class="hero">
   <div class="glow glow-1" aria-hidden="true"></div>
   <div class="glow glow-2" aria-hidden="true"></div>
+  <app-hero-bg />
 
   <div class="container hero-grid">
     <div class="intro">
@@ -31,22 +32,28 @@
       </div>
     </div>
 
-    <div class="portrait">
-      <div class="ring">
-        @if (!photoFailed()) {
-          <img
-            [src]="profile.photo"
-            [alt]="'Portrait of ' + profile.name"
-            width="320"
-            height="320"
-            (error)="photoFailed.set(true)"
-          />
-        } @else {
-          <div class="initials" role="img" [attr.aria-label]="profile.name">{{ profile.initials }}</div>
+    <div class="visual" aria-hidden="true">
+      <div class="orbit outer">
+        @for (t of outer; track t; let i = $index) {
+          <span class="slot" [style.--a]="(i * 360) / outer.length + 45 + 'deg'">
+            <span class="upright"><span class="pill">{{ t }}</span></span>
+          </span>
         }
       </div>
-      <div class="badge badge-1 card"><strong>5+</strong> yrs exp.</div>
-      <div class="badge badge-2 card mono">.NET · Angular · Azure</div>
+      <div class="orbit inner">
+        @for (t of inner; track t; let i = $index) {
+          <span class="slot" [style.--a]="(i * 360) / inner.length + 'deg'">
+            <span class="upright"><span class="pill accent">{{ t }}</span></span>
+          </span>
+        }
+      </div>
+      <div class="core">
+        @if (!photoFailed()) {
+          <img [src]="profile.photo" [alt]="'Portrait of ' + profile.name" width="180" height="180" (error)="photoFailed.set(true)" />
+        } @else {
+          <span class="mono-mark gradient-text">{{ profile.initials }}</span>
+        }
+      </div>
     </div>
   </div>
 </section>
