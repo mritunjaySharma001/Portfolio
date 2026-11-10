@@ -1,0 +1,76 @@
+<section id="contact" class="section alt">
+  <div class="container">
+    <div class="section-head center" appReveal>
+      <span class="eyebrow">06. Contact</span>
+      <h2>Let's <span class="gradient-text">work together</span></h2>
+      <p class="lead">
+        Open to opportunities in .NET, ASP.NET Core, Angular, Azure, microservices and full stack development. My
+        inbox is always open.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="info" appReveal>
+        <a class="card info-item" [href]="'mailto:' + profile.email">
+          <span class="icon"><app-icon name="mail" /></span>
+          <span>
+            <span class="label">Email</span>
+            <span class="value">{{ profile.email }}</span>
+          </span>
+        </a>
+        <a class="card info-item" [href]="profile.linkedin" target="_blank" rel="noopener">
+          <span class="icon"><app-icon name="linkedin" /></span>
+          <span>
+            <span class="label">LinkedIn</span>
+            <span class="value">mritunjay-sharma2021</span>
+          </span>
+        </a>
+        <div class="card info-item">
+          <span class="icon"><app-icon name="map-pin" /></span>
+          <span>
+            <span class="label">Location</span>
+            <span class="value">{{ profile.location }}</span>
+          </span>
+        </div>
+      </div>
+
+      <form class="card form" #f="ngForm" (ngSubmit)="f.valid && submit()" appReveal [revealDelay]="100" novalidate>
+        <div class="row">
+          <label>
+            <span>Name</span>
+            <input name="name" [(ngModel)]="model.name" required autocomplete="name" #name="ngModel" />
+            @if (name.invalid && (name.touched || f.submitted)) {
+              <small>Please enter your name.</small>
+            }
+          </label>
+          <label>
+            <span>Email</span>
+            <input
+              name="email"
+              type="email"
+              [(ngModel)]="model.email"
+              required
+              email
+              autocomplete="email"
+              #email="ngModel"
+            />
+            @if (email.invalid && (email.touched || f.submitted)) {
+              <small>Please enter a valid email.</small>
+            }
+          </label>
+        </div>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" [(ngModel)]="model.message" required #msg="ngModel"></textarea>
+          @if (msg.invalid && (msg.touched || f.submitted)) {
+            <small>Please write a short message.</small>
+          }
+        </label>
+        <button class="btn primary" type="submit"><app-icon name="send" [size]="16" /> Send message</button>
+        @if (sent()) {
+          <p class="sent" role="status">Your email app should open with the message ready to send.</p>
+        }
+      </form>
+    </div>
+  </div>
+</section>

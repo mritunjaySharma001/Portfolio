@@ -1,0 +1,52 @@
+<section id="home" class="hero">
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+
+  <div class="container hero-grid">
+    <div class="intro">
+      <span class="status">
+        <span class="dot"></span> Software Engineer &#64; ReverseLogix
+      </span>
+      <p class="hello">Hi, I'm</p>
+      <h1>
+        <span class="gradient-text">{{ profile.name }}</span>
+      </h1>
+      <p class="role" aria-live="polite">
+        <span class="mono">&gt;&nbsp;</span>{{ typed() }}<span class="caret" aria-hidden="true"></span>
+      </p>
+      <p class="tagline">{{ profile.tagline }}</p>
+
+      <div class="cta">
+        <a class="btn primary" [href]="profile.resume" download>
+          <app-icon name="download" [size]="18" /> Download Resume
+        </a>
+        <a class="btn ghost" href="#contact"> <app-icon name="mail" [size]="18" /> Get in touch </a>
+      </div>
+
+      <div class="meta">
+        <span><app-icon name="map-pin" [size]="16" /> {{ profile.location }}</span>
+        <a [href]="profile.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <app-icon name="linkedin" [size]="16" /> LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="portrait">
+      <div class="ring">
+        @if (!photoFailed()) {
+          <img
+            [src]="profile.photo"
+            [alt]="'Portrait of ' + profile.name"
+            width="320"
+            height="320"
+            (error)="photoFailed.set(true)"
+          />
+        } @else {
+          <div class="initials" role="img" [attr.aria-label]="profile.name">{{ profile.initials }}</div>
+        }
+      </div>
+      <div class="badge badge-1 card"><strong>5+</strong> yrs exp.</div>
+      <div class="badge badge-2 card mono">.NET · Angular · Azure</div>
+    </div>
+  </div>
+</section>

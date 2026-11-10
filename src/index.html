@@ -1,13 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <title>MritunjayPortfolio</title>
+  <title>Mritunjay Sharma | Full Stack .NET & Angular Engineer</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Mritunjay Sharma — Software Engineer with 5+ years building enterprise PLM/ERP platforms using C#, .NET Core, ASP.NET, Angular, SQL Server and Microsoft Azure.">
+  <meta name="author" content="Mritunjay Sharma">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mritunjay Sharma | Full Stack .NET & Angular Engineer">
+  <meta property="og:description" content="Enterprise applications with C#, .NET, Angular, SQL Server and Azure.">
+  <meta property="og:image" content="assets/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    // Apply saved theme before Angular boots to avoid a flash.
+    try {
+      var t = localStorage.getItem('ms-portfolio-theme') ||
+        (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to view this portfolio.</noscript>
 </body>
 </html>

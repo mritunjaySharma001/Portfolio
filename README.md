@@ -1,27 +1,28 @@
-# MritunjayPortfolio
+# Mritunjay Sharma — Developer Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+Responsive personal portfolio built with **Angular 18** (standalone components, signals, SCSS).
+Dark theme by default with a light/dark toggle, scroll-reveal animations and a typing hero.
 
-## Development server
+## Run locally
+```bash
+npm install
+npm start            # http://localhost:4200
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Edit content
+All text lives in one file: `src/app/data/portfolio.data.ts` (profile, skills, experience, projects, education).
 
-## Code scaffolding
+## Assets
+Drop these into `public/assets/`:
+- `profile.jpg` — square photo (≥ 640×640). Falls back to "MS" initials if missing.
+- `Mritunjay_Sharma_Resume.pdf` — used by every "Download Resume" button.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Deploy to GitHub Pages
+1. Create an empty GitHub repo named `mritunjay-portfolio`.
+2. `git remote add origin https://github.com/<your-username>/mritunjay-portfolio.git`
+3. `git add -A && git commit -m "Portfolio" && git push -u origin main`
+4. `npm run deploy` — builds and pushes to the `gh-pages` branch.
+5. In the repo: **Settings → Pages → Source: `gh-pages` branch**.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Site URL: `https://<your-username>.github.io/mritunjay-portfolio/`
+(If you rename the repo, update `--base-href` in the `deploy` script in `package.json`.)

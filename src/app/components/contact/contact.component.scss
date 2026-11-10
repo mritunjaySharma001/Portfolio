@@ -1,0 +1,129 @@
+.center {
+  text-align: center;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 32px;
+  }
+}
+
+.info {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  min-width: 0;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  &:is(a):hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  > span:last-child {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--chip-bg);
+  color: var(--accent);
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.value {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+
+  @media (min-width: 600px) {
+    padding: 28px;
+  }
+
+  .btn {
+    justify-self: start;
+  }
+}
+
+.row {
+  display: grid;
+  gap: 16px;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: 400 1rem var(--font); // 16px avoids iOS zoom on focus
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--chip-bg);
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: #f87171;
+  }
+}
+
+small {
+  color: #f87171;
+  font-size: 0.8rem;
+}
+
+.sent {
+  color: #22c55e;
+  font-size: 0.9rem;
+}
